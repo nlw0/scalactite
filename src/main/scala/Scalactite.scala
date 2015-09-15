@@ -18,6 +18,11 @@ object Scalactite extends App {
 
   val fileExtensionPattern = """(.*)\.md$""".r
 
+  if (!(sys.props contains "input")) {
+    System.err.println("Usage:\n" +
+                       "    java -Dinput=<markdown_root> -jar scalactite-assembly-1.0.jar")
+    System.exit(1)
+  }
   val inputFolder = sys.props("input")
 
   val fileList = Files.newDirectoryStream(Paths.get(inputFolder))
@@ -29,6 +34,7 @@ object Scalactite extends App {
   } {
     val markdown = io.Source.fromFile(filename).mkString
     val html = processor.markdownToHtml(markdown)
+    println(s"Converting $filename to $outputFilename")
     write(outputFilename, html)
   }
 
