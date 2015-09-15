@@ -3,8 +3,11 @@ Scalactite
 
 Right now this is just a silly small program that uses pegdown to convert markdown files to html.
 
-Usage:
-    java -Dinput=<markdown_root> -jar scalactite-assembly-1.0.jar
+## Usage
+Pick the jar file from [right here](https://github.com/nlw0/scalactite/raw/master/dist/scalactite-assembly-1.0.jar) and then: 
+```
+java -Dinput=<markdown_root> -jar scalactite-assembly-1.0.jar
+```
     
 Example:
 
